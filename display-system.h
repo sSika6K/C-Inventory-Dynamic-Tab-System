@@ -1,0 +1,11 @@
+//
+// Created by arman on 08/05/2026.
+//
+
+#ifndef C_INVENTORY_DYNAMIC_TAB_SYSTEM_DISPLAY_SYSTEM_H
+#define C_INVENTORY_DYNAMIC_TAB_SYSTEM_DISPLAY_SYSTEM_H
+
+void clear();
+int displayMenu();
+
+#endif //C_INVENTORY_DYNAMIC_TAB_SYSTEM_DISPLAY_SYSTEM_H

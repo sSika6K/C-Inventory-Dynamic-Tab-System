@@ -16,6 +16,8 @@ struct Object {
     float weight;
 };
 
+int isInventory(struct Inventory *inventory);
+void askObjectsSize(struct Inventory *inventory);
 void initiateInventory(struct Inventory *inventory);
 void addObject(struct Inventory *inventory);
 
