@@ -12,7 +12,19 @@ void chooseAction(int action, struct Inventory *inventory) {
         case 2:
             addObject(inventory);
         //case 3:
-            //displayInventory;
+            //displayInventory(inventory);
+        //case 4:
+            //modifyObjectWeight(inventory);
+        //case 5:
+            //deleteLastObject(inventory);
+        //case 6:
+            //inventoryWeight(inventory);
+        //case 7:
+            //getHeaviestObject(inventory);
+        //case 8:
+            // quit();
+        default:
+            displayMenu();
     }
     if (action == 1) {
         initiateInventory(inventory);
