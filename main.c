@@ -9,7 +9,7 @@ void chooseAction(struct Inventory *inventory) {
             chooseAction(inventory);
             break;
         case 2:
-            checkInventory(inventory);
+            isInventory(inventory);
             addObject(inventory);
             chooseAction(inventory);
             break;
@@ -35,6 +35,14 @@ void chooseAction(struct Inventory *inventory) {
             getHeaviestObject(inventory);
             chooseAction(inventory);
         case 8:
+            checkInventory(inventory);
+            resetInventory(inventory);
+            chooseAction(inventory);
+        case 9:
+            checkInventory(inventory);
+            averageInventoryWeight(inventory);
+            chooseAction(inventory);
+        case 10:
             exitSystem(inventory);
         default:
             chooseAction(inventory);

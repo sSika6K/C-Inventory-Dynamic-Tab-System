@@ -12,6 +12,9 @@ struct Object {
     float weight;
 };
 
+void averageInventoryWeight(struct Inventory *inventory);
+void isInventory(struct Inventory *inventory);
+void resetInventory(struct Inventory *inventory);
 void checkInventory(struct Inventory *inventory);
 void getHeaviestObject(struct Inventory *inventory);
 void exitSystem(struct Inventory *inventory);

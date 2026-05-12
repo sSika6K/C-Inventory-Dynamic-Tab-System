@@ -7,6 +7,29 @@
 #include <stdlib.h>
 #include <Windows.h>
 
+void averageInventoryWeight(struct Inventory *inventory) {
+    clear();
+    float total;
+    int size;
+    float result;
+    for (size = 0; size < inventory->size; size++) {
+        total += inventory->objects[size].weight;
+    }
+    result = total / size;
+    printf("Le poids moyen de l'inventaire est de %f Kg.", result);
+    Sleep(2000);
+}
+
+void resetInventory(struct Inventory *inventory) {
+    clear();
+    realloc(inventory->objects, sizeof(inventory->objects) * 0);
+    inventory->size = 0;
+    inventory->initialized = 0;
+    printf("Inventaire reitinialisee.");
+    Sleep(2000);
+    initiateInventory(inventory);
+}
+
 void exitSystem(struct Inventory *inventory) {
     clear();
     printf("Au revoir !");
@@ -26,12 +49,21 @@ void checkInventory(struct Inventory *inventory) {
     }
 }
 
+void isInventory(struct Inventory *inventory) {
+    if (inventory->initialized != 1) {
+        printf("Votre inventaire n'est pas initialisee !");
+        Sleep(2000);
+        chooseAction(inventory);
+    } else {
+        return;
+    }
+}
+
 void emptyInventory(struct Inventory *inventory) {
     clear();
     printf("Votre inventaire est vide !");
     Sleep(2000);
 }
-
 
 void askObjectsSize(struct Inventory *inventory) {
     if (inventory->initialized != 0) {
