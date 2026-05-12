@@ -5,4 +5,5 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(C_Inventory_Dynamic_Tab_System main.c
         inventory-system.c
-        display-system.c)
+        display-system.c
+        main.h)

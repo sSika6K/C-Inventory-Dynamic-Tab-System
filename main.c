@@ -1,41 +1,48 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#include "inventory-system.h"
 #include "display-system.h"
+#include "main.h"
 
-void chooseAction(int action, struct Inventory *inventory) {
+void chooseAction(struct Inventory *inventory) {
+    clear();
     switch (displayMenu()) {
         case 1:
             initiateInventory(inventory);
+            chooseAction(inventory);
             break;
         case 2:
+            checkInventory(inventory);
             addObject(inventory);
-        //case 3:
-            //displayInventory(inventory);
-        //case 4:
-            //modifyObjectWeight(inventory);
-        //case 5:
-            //deleteLastObject(inventory);
-        //case 6:
-            //inventoryWeight(inventory);
-        //case 7:
-            //getHeaviestObject(inventory);
-        //case 8:
-            // quit();
+            chooseAction(inventory);
+            break;
+        case 3:
+            checkInventory(inventory);
+            displayInventory(inventory);
+            chooseAction(inventory);
+            break;
+        case 4:
+            checkInventory(inventory);
+            modifyObjectWeight(inventory);
+            chooseAction(inventory);
+        case 5:
+            checkInventory(inventory);
+            deleteLastObject(inventory);
+            chooseAction(inventory);
+        case 6:
+            checkInventory(inventory);
+            inventoryWeight(inventory);
+            chooseAction(inventory);
+        case 7:
+            checkInventory(inventory);
+            getHeaviestObject(inventory);
+            chooseAction(inventory);
+        case 8:
+            exitSystem(inventory);
         default:
-            displayMenu();
-    }
-    if (action == 1) {
-        initiateInventory(inventory);
-    } else {
-        displayMenu();
+            chooseAction(inventory);
     }
 }
 
 int main(void) {
-
     struct Inventory inventory;
-    chooseAction(displayMenu(), &inventory);
+    chooseAction(&inventory);
     return 0;
 }
